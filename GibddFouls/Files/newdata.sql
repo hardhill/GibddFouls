@@ -36,7 +36,9 @@ INSERT INTO `carmodels` (`id`, `carname`, `year`) VALUES
 /*!40000 ALTER TABLE `fouls` DISABLE KEYS */;
 INSERT INTO `fouls` (`id`, `idregistration`, `datef`, `forfeit`) VALUES
 	(3, 1, '2021-03-15', 16),
-	(4, 2, '2021-03-15', 3);
+	(4, 2, '2021-03-15', 3),
+	(5, 4, '2021-03-17', 19),
+	(6, 7, '2021-03-17', 10);
 /*!40000 ALTER TABLE `fouls` ENABLE KEYS */;
 
 -- Дамп данных таблицы host1608830_fouls.owners: ~27 rows (приблизительно)
@@ -47,6 +49,7 @@ INSERT INTO `owners` (`id`, `name`) VALUES
 	(18, 'Борисов А.О.'),
 	(22, 'Булочкин А.С.'),
 	(21, 'Булочкин С.К.'),
+	(28, 'Быстров В.Д'),
 	(11, 'Высоких Е.А.'),
 	(5, 'Гном Д.Д.'),
 	(4, 'Дробышева Н.О'),
@@ -78,7 +81,7 @@ INSERT INTO `registration` (`id`, `idowner`, `idcarmodel`, `numid`) VALUES
 	(2, 22, 13, '763223'),
 	(3, 23, 10, '236544'),
 	(4, 24, 5, '855232'),
-	(5, 25, 3, '111111');
+	(7, 28, 1, '546387');
 /*!40000 ALTER TABLE `registration` ENABLE KEYS */;
 
 -- Дамп данных таблицы host1608830_fouls.typefouls: ~21 rows (приблизительно)

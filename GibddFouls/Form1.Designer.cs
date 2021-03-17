@@ -30,7 +30,7 @@ namespace GibddFouls
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.bGraph1 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.bNewFoul = new System.Windows.Forms.Button();
@@ -114,7 +114,7 @@ namespace GibddFouls
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Silver;
-            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.bGraph1);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(568, 0);
@@ -122,14 +122,15 @@ namespace GibddFouls
             this.panel1.Size = new System.Drawing.Size(97, 416);
             this.panel1.TabIndex = 0;
             // 
-            // button3
+            // bGraph1
             // 
-            this.button3.Location = new System.Drawing.Point(18, 47);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(62, 50);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.bGraph1.Location = new System.Drawing.Point(18, 47);
+            this.bGraph1.Name = "bGraph1";
+            this.bGraph1.Size = new System.Drawing.Size(62, 50);
+            this.bGraph1.TabIndex = 3;
+            this.bGraph1.Text = "button3";
+            this.bGraph1.UseVisualStyleBackColor = true;
+            this.bGraph1.Click += new System.EventHandler(this.bGraph1_Click);
             // 
             // label9
             // 
@@ -870,7 +871,7 @@ namespace GibddFouls
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button bFindFoul;
         private System.Windows.Forms.TextBox txtNumber1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button bGraph1;
         private System.Windows.Forms.Label label9;
     }
 }

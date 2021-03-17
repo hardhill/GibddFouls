@@ -17,6 +17,7 @@ namespace GibddFouls
     public partial class MainForm : Form
     {
         DbContext dbContext = DbContext.GetInstance();
+        FormGraph formGraph;
         public MainForm()
         {
             InitializeComponent();
@@ -169,7 +170,7 @@ namespace GibddFouls
                 listBoxFouls.Items.Add(item);
             }
             lblCountFouls.Text = dbContext.CountData("fouls").ToString();
-            lblFoundReg.Text = vfouls.Count().ToString();
+            lblFoundFouls.Text = vfouls.Count().ToString();
 
         }
         private void bNewNumber_Click(object sender, EventArgs e)
@@ -396,6 +397,17 @@ namespace GibddFouls
             {
                 UpdateListFT(txtFindFT.Text);
             }
+        }
+
+        private void bGraph1_Click(object sender, EventArgs e)
+        {
+            if (formGraph == null||formGraph.IsDisposed)
+            {
+                formGraph = new FormGraph();
+                
+            }
+            formGraph.foulsRep = dbContext.GetFoulsRep(); 
+            formGraph.Show();
         }
     }
 }

@@ -761,5 +761,39 @@ namespace GibddFouls.Models
             }
             return result;
         }
+
+        internal FoulsRep GetFoulsRep()
+        {
+            FoulsRep result = new FoulsRep();
+            using (MySqlConnection conn = new MySqlConnection(_connection))
+            {
+                try
+                {
+                    conn.Open();
+                }
+                catch (Exception)
+                {
+                    
+                }
+                string sql = $"SELECT datef, COUNT(*) FROM fouls GROUP BY datef ORDER BY datef";
+                using (MySqlCommand command = new MySqlCommand(sql, conn))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+
+                                var dt = reader.GetDateTime(0);
+                                var val = reader.GetInt32(1);
+                                result.AddData(dt, val);
+                            }
+                        }
+                    }
+                }
+            }
+            return result;
+        }
     }
 }

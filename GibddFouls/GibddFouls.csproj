@@ -38,6 +38,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -69,6 +70,12 @@
     <Compile Include="FormFT.Designer.cs">
       <DependentUpon>FormFT.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormGraph.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGraph.Designer.cs">
+      <DependentUpon>FormGraph.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormOwner.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +103,7 @@
     <Compile Include="Models\Car.cs" />
     <Compile Include="Models\DbContext.cs" />
     <Compile Include="Models\Foul.cs" />
+    <Compile Include="Models\FoulsRep.cs" />
     <Compile Include="Models\FoulType.cs" />
     <Compile Include="Models\Owner.cs" />
     <Compile Include="Models\Registration.cs" />
@@ -111,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormFT.resx">
       <DependentUpon>FormFT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGraph.resx">
+      <DependentUpon>FormGraph.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOwner.resx">
       <DependentUpon>FormOwner.cs</DependentUpon>
