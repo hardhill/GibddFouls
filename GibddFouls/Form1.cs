@@ -25,13 +25,16 @@ namespace GibddFouls
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            //парамтры соединения берется из файла параметров
             DbContext.Connection = Settings.Default.dbconnect;
+            //первоначально показать данные по нарушениям
             UpdateListFouls("");
             
         }
 
         private void bNewOwner_Click(object sender, EventArgs e)
         {
+            //подготовить форму для новой записи таблицы "Владельцы"
             FormOwner formOwner = new FormOwner();
             formOwner.txtOwner.Text = txtFindOwner.Text;
             formOwner.IdOwner = 0;
@@ -41,16 +44,6 @@ namespace GibddFouls
                 dbContext.NewOwner(formOwner.txtOwner.Text);
                 UpdateListOwners(txtFindOwner.Text);
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            dbContext.InitDb();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            dbContext.FillData();
         }
 
         private void bFindOwner_Click(object sender, EventArgs e)
@@ -114,11 +107,13 @@ namespace GibddFouls
             FormCar formCar = new FormCar();
             formCar.txtCarname.Text = "";
             formCar.txtCaryear.Text = "";
-            formCar.EditMode = EditMode.New;
+            formCar.IdCar = 0;
             if (formCar.ShowDialog() == DialogResult.OK)
             {
                 dbContext.NewCar(formCar.txtCarname.Text, formCar.txtCaryear.Text);
+                UpdateListCars(txtFindCar.Text);
             }
+            
         }
 
         private void bFindCar_Click(object sender, EventArgs e)
@@ -212,8 +207,9 @@ namespace GibddFouls
                 owner.OwnerName = formOwner.txtOwner.Text;
                 dbContext.UpdateOwner(owner.OwnerId, owner.OwnerName);
                 listBoxOwner.Items[listBoxOwner.SelectedIndex] = owner;
-                UpdateListOwners(txtFindOwner.Text);
+                
             }
+            UpdateListOwners(txtFindOwner.Text);
         }
 
         private void listBoxCar_DoubleClick(object sender, EventArgs e)
@@ -222,6 +218,7 @@ namespace GibddFouls
             FormCar formCar = new FormCar();
             formCar.txtCarname.Text = car.Carname;
             formCar.txtCaryear.Text = car.Caryear;
+            formCar.IdCar = car.IdCar;
             if (formCar.ShowDialog() == DialogResult.OK)
             {
                 car.Carname = formCar.txtCarname.Text;
@@ -229,6 +226,7 @@ namespace GibddFouls
                 dbContext.UpdateCar(car);
                 listBoxCar.Items[listBoxCar.SelectedIndex] = car;
             }
+            UpdateListCars(txtFindCar.Text);
         }
 
         private void listBoxFT_DoubleClick(object sender, EventArgs e)
@@ -272,16 +270,17 @@ namespace GibddFouls
                 Registration registration = new Registration();
                 registration.CarId = formRegistration.CarId; registration.Number = formRegistration.txtNumber.Text; registration.OwnerId = newIdOwner;
                 dbContext.UpdateRegistration(registration);
-                UpdateListReg(txtNumber.Text);
+                
                 listBoxReg.SelectedIndex = idx;
             }
-
+            UpdateListReg(txtNumber.Text);
         }
 
         private void bNewFoul_Click(object sender, EventArgs e)
         {
             FormPDD formPDD = new FormPDD();
             formPDD.dateTimePicker1.Value = DateTime.Now;
+            formPDD.IdFoul = 0;
             formPDD.IdTypeFoul = 0;
             formPDD.txtNumber.Text = ""; formPDD.IdReg = 0;
             
@@ -318,6 +317,84 @@ namespace GibddFouls
                 foul.IdTypeFoul = formPdd.IdTypeFoul;
                 foul.IdRegistr = formPdd.IdReg;
                 dbContext.UpdateFoul(foul);
+            }
+        }
+
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Alt && e.KeyCode == Keys.Back && e.Shift)
+            {
+                dbContext.InitDb();
+                MessageBox.Show("Создана структура данных", "Внимание.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }else if (e.Alt && e.KeyCode == Keys.Back)
+            {
+                dbContext.FillData();
+                MessageBox.Show("Добавлены некоторые данные. Программа будет закрыта.", "Внимание.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+            }
+        }
+
+        private void txtNumber1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                txtNumber1.Text = "";
+                UpdateListFouls("");
+            }
+            if (e.KeyCode == Keys.Enter)
+            {
+                UpdateListFouls(txtNumber1.Text);
+            }
+        }
+
+        private void txtNumber_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Delete)
+            {
+                txtNumber.Text = "";
+                UpdateListReg("");
+            }else if(e.KeyCode == Keys.Enter)
+            {
+                UpdateListReg(txtNumber.Text);
+            }
+        }
+
+        private void txtFindOwner_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                txtFindOwner.Text = "";
+                UpdateListOwners("");
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                UpdateListOwners(txtFindOwner.Text);
+            }
+        }
+
+        private void txtFindCar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                txtFindCar.Text = "";
+                UpdateListCars("");
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                UpdateListCars(txtFindCar.Text);
+            }
+        }
+
+        private void txtFindFT_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                txtFindFT.Text = "";
+                UpdateListFT("");
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                UpdateListFT(txtFindFT.Text);
             }
         }
     }

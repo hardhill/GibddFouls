@@ -32,8 +32,6 @@ namespace GibddFouls
             this.panel1 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.bNewFoul = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -118,8 +116,6 @@ namespace GibddFouls
             this.panel1.BackColor = System.Drawing.Color.Silver;
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(568, 0);
             this.panel1.Name = "panel1";
@@ -143,26 +139,6 @@ namespace GibddFouls
             this.label9.Size = new System.Drawing.Size(44, 13);
             this.label9.TabIndex = 2;
             this.label9.Text = "Отчеты";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(10, 380);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "NewData";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(10, 351);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "InitDb";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel2
             // 
@@ -312,6 +288,7 @@ namespace GibddFouls
             this.txtNumber1.Name = "txtNumber1";
             this.txtNumber1.Size = new System.Drawing.Size(71, 20);
             this.txtNumber1.TabIndex = 1;
+            this.txtNumber1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNumber1_KeyDown);
             // 
             // tabPageRegCar
             // 
@@ -438,6 +415,7 @@ namespace GibddFouls
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.Size = new System.Drawing.Size(71, 20);
             this.txtNumber.TabIndex = 1;
+            this.txtNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNumber_KeyDown);
             // 
             // tabPageOwners
             // 
@@ -551,6 +529,7 @@ namespace GibddFouls
             this.txtFindOwner.Name = "txtFindOwner";
             this.txtFindOwner.Size = new System.Drawing.Size(141, 20);
             this.txtFindOwner.TabIndex = 1;
+            this.txtFindOwner.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFindOwner_KeyDown);
             // 
             // tabPageCars
             // 
@@ -666,6 +645,7 @@ namespace GibddFouls
             this.txtFindCar.Name = "txtFindCar";
             this.txtFindCar.Size = new System.Drawing.Size(141, 20);
             this.txtFindCar.TabIndex = 1;
+            this.txtFindCar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFindCar_KeyDown);
             // 
             // tabPageFT
             // 
@@ -779,6 +759,7 @@ namespace GibddFouls
             this.txtFindFT.Name = "txtFindFT";
             this.txtFindFT.Size = new System.Drawing.Size(141, 20);
             this.txtFindFT.TabIndex = 1;
+            this.txtFindFT.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFindFT_KeyDown);
             // 
             // MainForm
             // 
@@ -788,10 +769,12 @@ namespace GibddFouls
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.KeyPreview = true;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Нарушения ПДД";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -839,8 +822,6 @@ namespace GibddFouls
         private System.Windows.Forms.Button bNewOwner;
         private System.Windows.Forms.TextBox txtFindOwner;
         private System.Windows.Forms.TabPage tabPageCars;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button bFindOwner;
         private System.Windows.Forms.Label lblFoundOwner;
         private System.Windows.Forms.Label lblCountOwner;

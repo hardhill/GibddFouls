@@ -87,5 +87,18 @@ namespace GibddFouls
                 IdReg = vreg[0].Id;
             }
         }
+
+        private void bDelete_Click(object sender, EventArgs e)
+        {
+            if (IdFoul > 0)
+            {
+                if (MessageBox.Show("Вы действительно хотите удалить эту запись?", "Внимание!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                {
+                    //удаление
+                    dbContext.DeleteData(IdFoul, "fouls");
+                    Close();
+                }
+            }
+        }
     }
 }
