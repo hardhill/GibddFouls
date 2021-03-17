@@ -16,9 +16,9 @@ namespace GibddFouls
     public partial class FormRegistration : Form
     {
         DbContext dbContext;
+        public int IdReg;
         public int OwnerId;
         public int CarId;
-        public EditMode EditMode;
         private Validator validator;
         public FormRegistration()
         {
@@ -82,6 +82,20 @@ namespace GibddFouls
         private void FormRegistration_Load(object sender, EventArgs e)
         {
             bSave.Enabled = validator.Check();
+        }
+
+        private void bDelete_Click(object sender, EventArgs e)
+        {
+            
+            if (IdReg > 0)
+            {
+                if (MessageBox.Show("Вы действительно хотите удалить эту запись?", "Внимание!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                {
+                    //удаление
+                    dbContext.DeleteData(IdReg, "registration");
+                    Close();
+                }
+            }
         }
     }
 }

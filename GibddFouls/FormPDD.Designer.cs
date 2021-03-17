@@ -157,6 +157,7 @@ namespace GibddFouls
             this.Name = "FormPDD";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Регистрация нарушения ПДД";
+            this.Load += new System.EventHandler(this.FormPDD_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

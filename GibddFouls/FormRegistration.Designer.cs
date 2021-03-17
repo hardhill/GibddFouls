@@ -117,6 +117,7 @@ namespace GibddFouls
             this.bDelete.TabIndex = 6;
             this.bDelete.Text = "Удалить";
             this.bDelete.UseVisualStyleBackColor = true;
+            this.bDelete.Click += new System.EventHandler(this.bDelete_Click);
             // 
             // cbCars
             // 

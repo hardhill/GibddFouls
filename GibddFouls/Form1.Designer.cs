@@ -30,13 +30,26 @@ namespace GibddFouls
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.bNewFoul = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPagePDDFouls = new System.Windows.Forms.TabPage();
+            this.listBoxFouls = new System.Windows.Forms.ListBox();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.lblFoundFouls = new System.Windows.Forms.Label();
+            this.lblCountFouls = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.bFindFoul = new System.Windows.Forms.Button();
+            this.txtNumber1 = new System.Windows.Forms.TextBox();
             this.tabPageRegCar = new System.Windows.Forms.TabPage();
+            this.listBoxReg = new System.Windows.Forms.ListBox();
             this.panel10 = new System.Windows.Forms.Panel();
             this.lblFoundReg = new System.Windows.Forms.Label();
             this.lblCountReg = new System.Windows.Forms.Label();
@@ -48,6 +61,7 @@ namespace GibddFouls
             this.bNewNumber = new System.Windows.Forms.Button();
             this.txtNumber = new System.Windows.Forms.TextBox();
             this.tabPageOwners = new System.Windows.Forms.TabPage();
+            this.listBoxOwner = new System.Windows.Forms.ListBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lblFoundOwner = new System.Windows.Forms.Label();
             this.lblCountOwner = new System.Windows.Forms.Label();
@@ -58,6 +72,7 @@ namespace GibddFouls
             this.bNewOwner = new System.Windows.Forms.Button();
             this.txtFindOwner = new System.Windows.Forms.TextBox();
             this.tabPageCars = new System.Windows.Forms.TabPage();
+            this.listBoxCar = new System.Windows.Forms.ListBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.lblFoundCar = new System.Windows.Forms.Label();
             this.lblCountCar = new System.Windows.Forms.Label();
@@ -68,6 +83,7 @@ namespace GibddFouls
             this.bNewCar = new System.Windows.Forms.Button();
             this.txtFindCar = new System.Windows.Forms.TextBox();
             this.tabPageFT = new System.Windows.Forms.TabPage();
+            this.listBoxFT = new System.Windows.Forms.ListBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.lblFoundFT = new System.Windows.Forms.Label();
             this.lblCountFT = new System.Windows.Forms.Label();
@@ -77,26 +93,12 @@ namespace GibddFouls
             this.bFindFT = new System.Windows.Forms.Button();
             this.bNewFT = new System.Windows.Forms.Button();
             this.txtFindFT = new System.Windows.Forms.TextBox();
-            this.listBoxOwner = new System.Windows.Forms.ListBox();
-            this.listBoxCar = new System.Windows.Forms.ListBox();
-            this.listBoxFT = new System.Windows.Forms.ListBox();
-            this.listBoxReg = new System.Windows.Forms.ListBox();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.bFindFoul = new System.Windows.Forms.Button();
-            this.txtNumber1 = new System.Windows.Forms.TextBox();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.lblFoundFouls = new System.Windows.Forms.Label();
-            this.lblCountFouls = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.listBoxFouls = new System.Windows.Forms.ListBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPagePDDFouls.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel11.SuspendLayout();
             this.tabPageRegCar.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -109,8 +111,6 @@ namespace GibddFouls
             this.tabPageFT.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.panel12.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -125,6 +125,24 @@ namespace GibddFouls
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(97, 416);
             this.panel1.TabIndex = 0;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(18, 47);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(62, 50);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(26, 14);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(44, 13);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Отчеты";
             // 
             // button2
             // 
@@ -192,6 +210,109 @@ namespace GibddFouls
             this.tabPagePDDFouls.Text = "Нарушения ПДД";
             this.tabPagePDDFouls.UseVisualStyleBackColor = true;
             // 
+            // listBoxFouls
+            // 
+            this.listBoxFouls.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBoxFouls.ColumnWidth = 600;
+            this.listBoxFouls.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxFouls.FormattingEnabled = true;
+            this.listBoxFouls.Location = new System.Drawing.Point(0, 47);
+            this.listBoxFouls.MultiColumn = true;
+            this.listBoxFouls.Name = "listBoxFouls";
+            this.listBoxFouls.Size = new System.Drawing.Size(560, 268);
+            this.listBoxFouls.TabIndex = 6;
+            this.listBoxFouls.DoubleClick += new System.EventHandler(this.listBoxFouls_DoubleClick);
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.lblFoundFouls);
+            this.panel12.Controls.Add(this.lblCountFouls);
+            this.panel12.Controls.Add(this.label13);
+            this.panel12.Controls.Add(this.label14);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel12.Location = new System.Drawing.Point(0, 315);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(560, 35);
+            this.panel12.TabIndex = 5;
+            // 
+            // lblFoundFouls
+            // 
+            this.lblFoundFouls.AutoSize = true;
+            this.lblFoundFouls.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblFoundFouls.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lblFoundFouls.Location = new System.Drawing.Point(209, 13);
+            this.lblFoundFouls.Name = "lblFoundFouls";
+            this.lblFoundFouls.Size = new System.Drawing.Size(14, 13);
+            this.lblFoundFouls.TabIndex = 1;
+            this.lblFoundFouls.Text = "0";
+            // 
+            // lblCountFouls
+            // 
+            this.lblCountFouls.AutoSize = true;
+            this.lblCountFouls.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblCountFouls.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lblCountFouls.Location = new System.Drawing.Point(117, 13);
+            this.lblCountFouls.Name = "lblCountFouls";
+            this.lblCountFouls.Size = new System.Drawing.Size(14, 13);
+            this.lblCountFouls.TabIndex = 1;
+            this.lblCountFouls.Text = "0";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(149, 13);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(54, 13);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Найдено:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(13, 13);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(98, 13);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Всего нарушений:";
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.label4);
+            this.panel11.Controls.Add(this.bFindFoul);
+            this.panel11.Controls.Add(this.txtNumber1);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel11.Location = new System.Drawing.Point(0, 0);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(560, 47);
+            this.panel11.TabIndex = 4;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(8, 18);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(60, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Гос.номер";
+            // 
+            // bFindFoul
+            // 
+            this.bFindFoul.Location = new System.Drawing.Point(152, 13);
+            this.bFindFoul.Name = "bFindFoul";
+            this.bFindFoul.Size = new System.Drawing.Size(75, 23);
+            this.bFindFoul.TabIndex = 3;
+            this.bFindFoul.Text = "Поиск";
+            this.bFindFoul.UseVisualStyleBackColor = true;
+            this.bFindFoul.Click += new System.EventHandler(this.bFindFoul_Click);
+            // 
+            // txtNumber1
+            // 
+            this.txtNumber1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNumber1.Location = new System.Drawing.Point(75, 15);
+            this.txtNumber1.Name = "txtNumber1";
+            this.txtNumber1.Size = new System.Drawing.Size(71, 20);
+            this.txtNumber1.TabIndex = 1;
+            // 
             // tabPageRegCar
             // 
             this.tabPageRegCar.Controls.Add(this.listBoxReg);
@@ -203,6 +324,19 @@ namespace GibddFouls
             this.tabPageRegCar.TabIndex = 3;
             this.tabPageRegCar.Text = "Регистрация ТС";
             this.tabPageRegCar.UseVisualStyleBackColor = true;
+            // 
+            // listBoxReg
+            // 
+            this.listBoxReg.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBoxReg.ColumnWidth = 300;
+            this.listBoxReg.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxReg.FormattingEnabled = true;
+            this.listBoxReg.Location = new System.Drawing.Point(0, 47);
+            this.listBoxReg.MultiColumn = true;
+            this.listBoxReg.Name = "listBoxReg";
+            this.listBoxReg.Size = new System.Drawing.Size(560, 268);
+            this.listBoxReg.TabIndex = 6;
+            this.listBoxReg.DoubleClick += new System.EventHandler(this.listBoxReg_DoubleClick);
             // 
             // panel10
             // 
@@ -317,6 +451,17 @@ namespace GibddFouls
             this.tabPageOwners.Text = "Владельцы";
             this.tabPageOwners.UseVisualStyleBackColor = true;
             // 
+            // listBoxOwner
+            // 
+            this.listBoxOwner.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBoxOwner.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxOwner.FormattingEnabled = true;
+            this.listBoxOwner.Location = new System.Drawing.Point(0, 47);
+            this.listBoxOwner.Name = "listBoxOwner";
+            this.listBoxOwner.Size = new System.Drawing.Size(560, 268);
+            this.listBoxOwner.TabIndex = 3;
+            this.listBoxOwner.DoubleClick += new System.EventHandler(this.listBoxOwner_DoubleClick);
+            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.lblFoundOwner);
@@ -418,6 +563,19 @@ namespace GibddFouls
             this.tabPageCars.TabIndex = 1;
             this.tabPageCars.Text = "Автомобили";
             this.tabPageCars.UseVisualStyleBackColor = true;
+            // 
+            // listBoxCar
+            // 
+            this.listBoxCar.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBoxCar.ColumnWidth = 200;
+            this.listBoxCar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxCar.FormattingEnabled = true;
+            this.listBoxCar.Location = new System.Drawing.Point(0, 47);
+            this.listBoxCar.MultiColumn = true;
+            this.listBoxCar.Name = "listBoxCar";
+            this.listBoxCar.Size = new System.Drawing.Size(560, 268);
+            this.listBoxCar.TabIndex = 4;
+            this.listBoxCar.DoubleClick += new System.EventHandler(this.listBoxCar_DoubleClick);
             // 
             // panel6
             // 
@@ -521,6 +679,17 @@ namespace GibddFouls
             this.tabPageFT.Text = "Виды нарушений";
             this.tabPageFT.UseVisualStyleBackColor = true;
             // 
+            // listBoxFT
+            // 
+            this.listBoxFT.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBoxFT.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxFT.FormattingEnabled = true;
+            this.listBoxFT.Location = new System.Drawing.Point(0, 47);
+            this.listBoxFT.Name = "listBoxFT";
+            this.listBoxFT.Size = new System.Drawing.Size(560, 268);
+            this.listBoxFT.TabIndex = 5;
+            this.listBoxFT.DoubleClick += new System.EventHandler(this.listBoxFT_DoubleClick);
+            // 
             // panel8
             // 
             this.panel8.Controls.Add(this.lblFoundFT);
@@ -611,174 +780,6 @@ namespace GibddFouls
             this.txtFindFT.Size = new System.Drawing.Size(141, 20);
             this.txtFindFT.TabIndex = 1;
             // 
-            // listBoxOwner
-            // 
-            this.listBoxOwner.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBoxOwner.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBoxOwner.FormattingEnabled = true;
-            this.listBoxOwner.Location = new System.Drawing.Point(0, 47);
-            this.listBoxOwner.Name = "listBoxOwner";
-            this.listBoxOwner.Size = new System.Drawing.Size(560, 268);
-            this.listBoxOwner.TabIndex = 3;
-            this.listBoxOwner.DoubleClick += new System.EventHandler(this.listBoxOwner_DoubleClick);
-            // 
-            // listBoxCar
-            // 
-            this.listBoxCar.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBoxCar.ColumnWidth = 200;
-            this.listBoxCar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBoxCar.FormattingEnabled = true;
-            this.listBoxCar.Location = new System.Drawing.Point(0, 47);
-            this.listBoxCar.MultiColumn = true;
-            this.listBoxCar.Name = "listBoxCar";
-            this.listBoxCar.Size = new System.Drawing.Size(560, 268);
-            this.listBoxCar.TabIndex = 4;
-            this.listBoxCar.DoubleClick += new System.EventHandler(this.listBoxCar_DoubleClick);
-            // 
-            // listBoxFT
-            // 
-            this.listBoxFT.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBoxFT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBoxFT.FormattingEnabled = true;
-            this.listBoxFT.Location = new System.Drawing.Point(0, 47);
-            this.listBoxFT.Name = "listBoxFT";
-            this.listBoxFT.Size = new System.Drawing.Size(560, 268);
-            this.listBoxFT.TabIndex = 5;
-            this.listBoxFT.DoubleClick += new System.EventHandler(this.listBoxFT_DoubleClick);
-            // 
-            // listBoxReg
-            // 
-            this.listBoxReg.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBoxReg.ColumnWidth = 300;
-            this.listBoxReg.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBoxReg.FormattingEnabled = true;
-            this.listBoxReg.Location = new System.Drawing.Point(0, 47);
-            this.listBoxReg.MultiColumn = true;
-            this.listBoxReg.Name = "listBoxReg";
-            this.listBoxReg.Size = new System.Drawing.Size(560, 268);
-            this.listBoxReg.TabIndex = 6;
-            this.listBoxReg.DoubleClick += new System.EventHandler(this.listBoxReg_DoubleClick);
-            // 
-            // panel11
-            // 
-            this.panel11.Controls.Add(this.label4);
-            this.panel11.Controls.Add(this.bFindFoul);
-            this.panel11.Controls.Add(this.txtNumber1);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel11.Location = new System.Drawing.Point(0, 0);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(560, 47);
-            this.panel11.TabIndex = 4;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 18);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Гос.номер";
-            // 
-            // bFindFoul
-            // 
-            this.bFindFoul.Location = new System.Drawing.Point(152, 13);
-            this.bFindFoul.Name = "bFindFoul";
-            this.bFindFoul.Size = new System.Drawing.Size(75, 23);
-            this.bFindFoul.TabIndex = 3;
-            this.bFindFoul.Text = "Поиск";
-            this.bFindFoul.UseVisualStyleBackColor = true;
-            this.bFindFoul.Click += new System.EventHandler(this.bFindFoul_Click);
-            // 
-            // txtNumber1
-            // 
-            this.txtNumber1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNumber1.Location = new System.Drawing.Point(75, 15);
-            this.txtNumber1.Name = "txtNumber1";
-            this.txtNumber1.Size = new System.Drawing.Size(71, 20);
-            this.txtNumber1.TabIndex = 1;
-            // 
-            // panel12
-            // 
-            this.panel12.Controls.Add(this.lblFoundFouls);
-            this.panel12.Controls.Add(this.lblCountFouls);
-            this.panel12.Controls.Add(this.label13);
-            this.panel12.Controls.Add(this.label14);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel12.Location = new System.Drawing.Point(0, 315);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(560, 35);
-            this.panel12.TabIndex = 5;
-            // 
-            // lblFoundFouls
-            // 
-            this.lblFoundFouls.AutoSize = true;
-            this.lblFoundFouls.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblFoundFouls.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lblFoundFouls.Location = new System.Drawing.Point(209, 13);
-            this.lblFoundFouls.Name = "lblFoundFouls";
-            this.lblFoundFouls.Size = new System.Drawing.Size(14, 13);
-            this.lblFoundFouls.TabIndex = 1;
-            this.lblFoundFouls.Text = "0";
-            // 
-            // lblCountFouls
-            // 
-            this.lblCountFouls.AutoSize = true;
-            this.lblCountFouls.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblCountFouls.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lblCountFouls.Location = new System.Drawing.Point(117, 13);
-            this.lblCountFouls.Name = "lblCountFouls";
-            this.lblCountFouls.Size = new System.Drawing.Size(14, 13);
-            this.lblCountFouls.TabIndex = 1;
-            this.lblCountFouls.Text = "0";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(149, 13);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(54, 13);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "Найдено:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(13, 13);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(98, 13);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Всего нарушений:";
-            // 
-            // listBoxFouls
-            // 
-            this.listBoxFouls.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBoxFouls.ColumnWidth = 500;
-            this.listBoxFouls.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBoxFouls.FormattingEnabled = true;
-            this.listBoxFouls.Location = new System.Drawing.Point(0, 47);
-            this.listBoxFouls.MultiColumn = true;
-            this.listBoxFouls.Name = "listBoxFouls";
-            this.listBoxFouls.Size = new System.Drawing.Size(560, 268);
-            this.listBoxFouls.TabIndex = 6;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(26, 14);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(44, 13);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "Отчеты";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(18, 47);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(62, 50);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -796,6 +797,10 @@ namespace GibddFouls
             this.panel2.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPagePDDFouls.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
             this.tabPageRegCar.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
@@ -816,10 +821,6 @@ namespace GibddFouls
             this.panel8.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
-            this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
             this.ResumeLayout(false);
 
         }

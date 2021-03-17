@@ -237,6 +237,7 @@ namespace GibddFouls.Models
             return result;
         }
 
+
         internal int NewCar(string txtCarmodel, string txtCaryear)
         {
             int result = 0;
@@ -274,6 +275,36 @@ namespace GibddFouls.Models
             return result;
         }
 
+        internal int DeleteData(int id,string table)
+        {
+            int result = 0;
+            using (MySqlConnection conn = new MySqlConnection(_connection))
+            {
+                try
+                {
+                    conn.Open();
+                }
+                catch (Exception)
+                {
+
+                }
+                using (MySqlCommand command = new MySqlCommand())
+                {
+                    command.Connection = conn;
+                    command.CommandText = $"DELETE FROM {table} WHERE id = {id}";
+                    try
+                    {
+                        command.ExecuteNonQuery();
+                        result = 1;
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+                }
+            }
+            return result;
+        }
         internal void UpdateFoulType(FoulType foulType)
         {
             using (MySqlConnection conn = new MySqlConnection(_connection))
@@ -366,6 +397,35 @@ namespace GibddFouls.Models
             return result;
         }
 
+        internal void UpdateFoul(Foul foul)
+        {
+            using (MySqlConnection conn = new MySqlConnection(_connection))
+            {
+                try
+                {
+                    conn.Open();
+                }
+                catch (Exception)
+                {
+
+                }
+                using (MySqlCommand command = new MySqlCommand())
+                {
+                    command.Connection = conn;
+                    command.CommandText = $"UPDATE fouls SET datef='{foul.DtFoul.ToString("yyyy-MM-dd")}',idregistration={foul.IdRegistr},forfeit = {foul.IdTypeFoul} " +
+                        $"WHERE id = {foul.Id}";
+                    try
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+                }
+            }
+        }
+
         internal int NewFoul(Foul foul)
         {
             int result = 0;
@@ -383,7 +443,7 @@ namespace GibddFouls.Models
                 {
                     command.Connection = conn;
                     string dt = foul.DtFoul.ToString("yyyy-MM-dd");
-                    command.CommandText = $"INSERT INTO fouls (idregistration,`date`,fouls.` forfeit`) VALUES({foul.IdRegistr},'{dt}',{foul.IdTypeFoul})";
+                    command.CommandText = $"INSERT INTO fouls (idregistration,`datef`,fouls.`forfeit`) VALUES({foul.IdRegistr},'{dt}',{foul.IdTypeFoul})";
                     try
                     {
                         command.ExecuteNonQuery();

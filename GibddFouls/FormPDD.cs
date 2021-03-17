@@ -56,5 +56,36 @@ namespace GibddFouls
         {
             bSave.Enabled = IdReg != 0 && IdTypeFoul != 0;
         }
+
+        private void FormPDD_Load(object sender, EventArgs e)
+        {
+            List<FoulType> ftList = dbContext.GetFoulsType("");
+            foreach (var item in ftList)
+            {
+                cbTypeFoul.Items.Add(item);
+            }
+            if (IdTypeFoul == 0)
+            {
+                cbTypeFoul.SelectedIndex = -1;
+            }
+            else
+            {
+               for(var i = 0; i < cbTypeFoul.Items.Count; i++)
+                {
+                    FoulType item = (FoulType)cbTypeFoul.Items[i];
+                    if (IdTypeFoul == item.Id)
+                    {
+                        cbTypeFoul.SelectedIndex = i;
+                        break;
+                    }
+                }
+            }
+            List<VRegistration> vreg = dbContext.GetVRegistrations(txtNumber.Text);
+            if (vreg.Count == 1)
+            {
+                lblRegistration.Text = $"ТС: {vreg[0].Carmodel} [{vreg[0].Caryear}] владелец:{vreg[0].Owner}";
+                IdReg = vreg[0].Id;
+            }
+        }
     }
 }

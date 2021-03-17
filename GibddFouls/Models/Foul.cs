@@ -8,6 +8,7 @@ namespace GibddFouls.Models
 {
     public class Foul
     {
+        public int Id { get; set; }
         public DateTime DtFoul { get; set; }
         public int IdRegistr { get; set; }
         public int IdTypeFoul { get; set; }

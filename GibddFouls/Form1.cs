@@ -26,6 +26,7 @@ namespace GibddFouls
         private void MainForm_Load(object sender, EventArgs e)
         {
             DbContext.Connection = Settings.Default.dbconnect;
+            UpdateListFouls("");
             
         }
 
@@ -33,11 +34,12 @@ namespace GibddFouls
         {
             FormOwner formOwner = new FormOwner();
             formOwner.txtOwner.Text = txtFindOwner.Text;
-            formOwner.EditMode = EditMode.New;
+            formOwner.IdOwner = 0;
             if(formOwner.ShowDialog() == DialogResult.OK)
             {
                 //новую запись в таблицу владельцев автотранспорта
                 dbContext.NewOwner(formOwner.txtOwner.Text);
+                UpdateListOwners(txtFindOwner.Text);
             }
         }
 
@@ -129,7 +131,7 @@ namespace GibddFouls
         {
             FormFT formFT = new FormFT();
             formFT.Text = "";
-            formFT.EditMode = EditMode.New;
+            formFT.IdFT = 0;
             if (formFT.ShowDialog() == DialogResult.OK)
             {
                 dbContext.NewFoulType(formFT.txtFT.Text);
@@ -182,7 +184,6 @@ namespace GibddFouls
             formRegistration.OwnerId = 0;
             formRegistration.CarId = 0;
             formRegistration.txtNumber.Text = "";
-            formRegistration.EditMode = EditMode.New;
             if (formRegistration.ShowDialog() == DialogResult.OK)
             {
                 //либо новый владелец либо находит по условию имеющегося
@@ -191,6 +192,7 @@ namespace GibddFouls
                 registration.CarId = formRegistration.CarId; registration.Number = formRegistration.txtNumber.Text; registration.OwnerId = newIdOwner;
                 int newRegistr = dbContext.NewRegistration(registration);
             }
+            UpdateListReg(txtNumber.Text);
         }
 
         private void bFindNum_Click(object sender, EventArgs e)
@@ -203,13 +205,14 @@ namespace GibddFouls
         {
             Owner owner = (Owner)listBoxOwner.SelectedItem;
             FormOwner formOwner = new FormOwner();
-            formOwner.EditMode = EditMode.Update;
+            formOwner.IdOwner = owner.OwnerId;
             formOwner.txtOwner.Text = owner.OwnerName;
             if (formOwner.ShowDialog() == DialogResult.OK)
             {
                 owner.OwnerName = formOwner.txtOwner.Text;
                 dbContext.UpdateOwner(owner.OwnerId, owner.OwnerName);
                 listBoxOwner.Items[listBoxOwner.SelectedIndex] = owner;
+                UpdateListOwners(txtFindOwner.Text);
             }
         }
 
@@ -232,6 +235,7 @@ namespace GibddFouls
         {
             FoulType foulType = (FoulType)listBoxFT.SelectedItem;
             FormFT formFT = new FormFT();
+            formFT.IdFT = foulType.Id;
             formFT.txtFT.Text = foulType.Type;
             if (formFT.ShowDialog() == DialogResult.OK)
             {
@@ -239,6 +243,7 @@ namespace GibddFouls
                 dbContext.UpdateFoulType(foulType);
                 listBoxFT.Items[listBoxFT.SelectedIndex] = foulType;
             }
+            UpdateListFT(txtFindFT.Text);
         }
 
         private void listBoxReg_DoubleClick(object sender, EventArgs e)
@@ -246,9 +251,9 @@ namespace GibddFouls
             VRegistration vreg = (VRegistration)listBoxReg.SelectedItem;
             int idx = listBoxReg.SelectedIndex;
             FormRegistration formRegistration = new FormRegistration();
+            formRegistration.IdReg = vreg.Id;
             formRegistration.txtNumber.Text = vreg.Number;
             formRegistration.txtOwner.Text = vreg.Owner;
-            formRegistration.EditMode = EditMode.Update;
             formRegistration.CarId = vreg.CarId;
             formRegistration.OwnerId = vreg.OwnerId;
             var list = formRegistration.cbCars.Items;
@@ -277,13 +282,9 @@ namespace GibddFouls
         {
             FormPDD formPDD = new FormPDD();
             formPDD.dateTimePicker1.Value = DateTime.Now;
-            formPDD.cbTypeFoul.SelectedIndex = - 1; formPDD.IdTypeFoul = 0;
+            formPDD.IdTypeFoul = 0;
             formPDD.txtNumber.Text = ""; formPDD.IdReg = 0;
-            List<FoulType> ftList = dbContext.GetFoulsType("");
-            foreach (var item in ftList)
-            {
-                formPDD.cbTypeFoul.Items.Add(item);
-            }
+            
             if(formPDD.ShowDialog() == DialogResult.OK)
             {
                 Foul foul = new Foul();
@@ -291,6 +292,7 @@ namespace GibddFouls
                 foul.IdTypeFoul = formPDD.IdTypeFoul;
                 foul.IdRegistr = formPDD.IdReg;
                 dbContext.NewFoul(foul);
+                UpdateListFouls(txtNumber.Text);
             }
         }
 
@@ -299,6 +301,24 @@ namespace GibddFouls
             UpdateListFouls(txtNumber1.Text);
         }
 
-       
+        private void listBoxFouls_DoubleClick(object sender, EventArgs e)
+        {
+           VFoul vfoul =  (VFoul)listBoxFouls.SelectedItem;
+            FormPDD formPdd = new FormPDD();
+            formPdd.dateTimePicker1.Value = vfoul.Date;
+            formPdd.IdFoul = vfoul.Id;
+            formPdd.IdReg = vfoul.IdReg;
+            formPdd.IdTypeFoul = vfoul.IdTypeFoul;
+            formPdd.txtNumber.Text = vfoul.Number;
+            if (formPdd.ShowDialog() == DialogResult.OK)
+            {
+                Foul foul = new Foul();
+                foul.Id = vfoul.Id;
+                foul.DtFoul = formPdd.dateTimePicker1.Value;
+                foul.IdTypeFoul = formPdd.IdTypeFoul;
+                foul.IdRegistr = formPdd.IdReg;
+                dbContext.UpdateFoul(foul);
+            }
+        }
     }
 }

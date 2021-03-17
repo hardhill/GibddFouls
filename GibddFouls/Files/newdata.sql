@@ -2,7 +2,7 @@
 -- Хост:                         mysql16.hostland.ru
 -- Версия сервера:               5.7.31-34-log - Percona Server (GPL), Release 34, Revision 2e68637
 -- Операционная система:         Linux
--- HeidiSQL Версия:              11.2.0.6213
+-- HeidiSQL Версия:              11.0.0.5919
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -10,7 +10,6 @@
 /*!50503 SET NAMES utf8mb4 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 -- Дамп данных таблицы host1608830_fouls.carmodels: ~16 rows (приблизительно)
 /*!40000 ALTER TABLE `carmodels` DISABLE KEYS */;
@@ -33,10 +32,11 @@ INSERT INTO `carmodels` (`id`, `carname`, `year`) VALUES
 	(6, 'Zest', '2001');
 /*!40000 ALTER TABLE `carmodels` ENABLE KEYS */;
 
--- Дамп данных таблицы host1608830_fouls.fouls: ~1 rows (приблизительно)
+-- Дамп данных таблицы host1608830_fouls.fouls: ~2 rows (приблизительно)
 /*!40000 ALTER TABLE `fouls` DISABLE KEYS */;
-INSERT INTO `fouls` (`id`, `idregistration`, `date`, ` forfeit`) VALUES
-	(3, 5, '2021-03-15', 6);
+INSERT INTO `fouls` (`id`, `idregistration`, `datef`, `forfeit`) VALUES
+	(3, 1, '2021-03-15', 16),
+	(4, 2, '2021-03-15', 3);
 /*!40000 ALTER TABLE `fouls` ENABLE KEYS */;
 
 -- Дамп данных таблицы host1608830_fouls.owners: ~27 rows (приблизительно)
@@ -78,7 +78,7 @@ INSERT INTO `registration` (`id`, `idowner`, `idcarmodel`, `numid`) VALUES
 	(2, 22, 13, '763223'),
 	(3, 23, 10, '236544'),
 	(4, 24, 5, '855232'),
-	(5, 25, 14, '111111');
+	(5, 25, 3, '111111');
 /*!40000 ALTER TABLE `registration` ENABLE KEYS */;
 
 -- Дамп данных таблицы host1608830_fouls.typefouls: ~21 rows (приблизительно)
@@ -108,6 +108,5 @@ INSERT INTO `typefouls` (`id`, `typename`) VALUES
 /*!40000 ALTER TABLE `typefouls` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

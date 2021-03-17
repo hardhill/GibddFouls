@@ -71,6 +71,7 @@ namespace GibddFouls
             this.bDelete.TabIndex = 2;
             this.bDelete.Text = "Удалить";
             this.bDelete.UseVisualStyleBackColor = true;
+            this.bDelete.Click += new System.EventHandler(this.bDelete_Click);
             // 
             // FormFT
             // 
