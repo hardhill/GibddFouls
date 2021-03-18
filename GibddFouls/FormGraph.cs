@@ -29,12 +29,16 @@ namespace GibddFouls
         {
             chart1.Series.Clear();
             chart1.Series.Add("series1");
+            chart1.Series[0].XValueType = ChartValueType.DateTime;
             foreach ( var item in foulsRep.Data)
             {
-                double xValue = item.ddata;
+
                 double yValue = Convert.ToDouble(item.Value);
-                chart1.Series[0].Points.Add(new DataPoint(xValue, yValue));
+                DataPoint dataPoint = new DataPoint(item.xdata.ToOADate(), yValue);
+
+                chart1.Series[0].Points.Add(dataPoint);
             }
+            
         }
     }
 }

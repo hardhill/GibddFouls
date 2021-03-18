@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `fouls` (
   KEY `FK_FORFIET` (`forfeit`),
   CONSTRAINT `FK_FORFIET` FOREIGN KEY (`forfeit`) REFERENCES `typefouls` (`id`),
   CONSTRAINT `FK_REG` FOREIGN KEY (`idregistration`) REFERENCES `registration` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- Экспортируемые данные не выделены.
 
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `owners` (
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 
 -- Экспортируемые данные не выделены.
 
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `registration` (
   KEY `FK_IDCAR` (`idcarmodel`),
   CONSTRAINT `FK_IDCAR` FOREIGN KEY (`idcarmodel`) REFERENCES `carmodels` (`id`),
   CONSTRAINT `FK_IDOWNER` FOREIGN KEY (`idowner`) REFERENCES `owners` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- Экспортируемые данные не выделены.
 
