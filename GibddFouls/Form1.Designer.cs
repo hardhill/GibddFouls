@@ -91,6 +91,7 @@ namespace GibddFouls
             this.bFindFT = new System.Windows.Forms.Button();
             this.bNewFT = new System.Windows.Forms.Button();
             this.txtFindFT = new System.Windows.Forms.TextBox();
+            this.bHelp = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -113,7 +114,8 @@ namespace GibddFouls
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Silver;
+            this.panel1.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel1.Controls.Add(this.bHelp);
             this.panel1.Controls.Add(this.bGraph1);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
@@ -124,12 +126,17 @@ namespace GibddFouls
             // 
             // bGraph1
             // 
+            this.bGraph1.BackColor = System.Drawing.Color.Gainsboro;
+            this.bGraph1.BackgroundImage = global::GibddFouls.Properties.Resources.graph;
+            this.bGraph1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bGraph1.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.bGraph1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bGraph1.Location = new System.Drawing.Point(18, 47);
             this.bGraph1.Name = "bGraph1";
             this.bGraph1.Size = new System.Drawing.Size(62, 50);
             this.bGraph1.TabIndex = 3;
-            this.bGraph1.Text = "button3";
-            this.bGraph1.UseVisualStyleBackColor = true;
+            this.bGraph1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.bGraph1.UseVisualStyleBackColor = false;
             this.bGraph1.Click += new System.EventHandler(this.bGraph1_Click);
             // 
             // label9
@@ -762,6 +769,17 @@ namespace GibddFouls
             this.txtFindFT.TabIndex = 1;
             this.txtFindFT.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFindFT_KeyDown);
             // 
+            // bHelp
+            // 
+            this.bHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bHelp.Location = new System.Drawing.Point(10, 380);
+            this.bHelp.Name = "bHelp";
+            this.bHelp.Size = new System.Drawing.Size(75, 23);
+            this.bHelp.TabIndex = 4;
+            this.bHelp.Text = "Помощь";
+            this.bHelp.UseVisualStyleBackColor = true;
+            this.bHelp.Click += new System.EventHandler(this.bHelp_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -873,6 +891,7 @@ namespace GibddFouls
         private System.Windows.Forms.TextBox txtNumber1;
         private System.Windows.Forms.Button bGraph1;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button bHelp;
     }
 }
 

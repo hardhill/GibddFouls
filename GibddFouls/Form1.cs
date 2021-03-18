@@ -18,6 +18,7 @@ namespace GibddFouls
     {
         DbContext dbContext = DbContext.GetInstance();
         FormGraph formGraph;
+        FormHelp formHelp;
         public MainForm()
         {
             InitializeComponent();
@@ -408,6 +409,16 @@ namespace GibddFouls
             }
             formGraph.foulsRep = dbContext.GetFoulsRep(); 
             formGraph.Show();
+        }
+
+        private void bHelp_Click(object sender, EventArgs e)
+        {
+            //помощь, документация по программе
+            if(formHelp == null || formHelp.IsDisposed)
+            {
+                formHelp = new FormHelp();
+            }
+            formHelp.Show();
         }
     }
 }

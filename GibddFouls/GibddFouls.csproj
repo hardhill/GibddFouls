@@ -76,6 +76,12 @@
     <Compile Include="FormGraph.Designer.cs">
       <DependentUpon>FormGraph.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHelp.Designer.cs">
+      <DependentUpon>FormHelp.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormOwner.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,12 +99,6 @@
     </Compile>
     <Compile Include="FormRegistration.Designer.cs">
       <DependentUpon>FormRegistration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormVoc.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormVoc.Designer.cs">
-      <DependentUpon>FormVoc.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Car.cs" />
     <Compile Include="Models\DbContext.cs" />
@@ -123,6 +123,9 @@
     <EmbeddedResource Include="FormGraph.resx">
       <DependentUpon>FormGraph.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormHelp.resx">
+      <DependentUpon>FormHelp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormOwner.resx">
       <DependentUpon>FormOwner.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,9 +135,6 @@
     <EmbeddedResource Include="FormRegistration.resx">
       <DependentUpon>FormRegistration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormVoc.resx">
-      <DependentUpon>FormVoc.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -143,6 +143,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -162,9 +163,13 @@
     <Content Include="Files\create.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Files\help.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Files\newdata.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\graph.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
