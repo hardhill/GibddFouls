@@ -1,11 +1,63 @@
-﻿<!DOCTYPE html>
-
-<html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-    <meta charset="utf-8" />
-    <title>Документация</title>
+    <meta charset="UTF-8">
+    <title>Руководство пользователя</title>
+    <style>
+        body{
+            margin:0px;
+            font-family: Calibri;
+        }
+        .menu{
+            position: absolute;
+            left:0px;
+            top:0px;
+            width: 100%;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.5rem;
+            background-color: cornflowerblue;
+            color: aliceblue;
+        }
+        .mainmenu,li{
+            display:flex;
+            list-style: none;
+            margin: 0px 5px;
+            align-items: center;
+        }
+        li:hover{
+            text-decoration:underline;
+            cursor: pointer;
+        }
+        .container{
+            padding: 2rem 0.5rem;
+            width: 100%;
+        }
+        .caption{
+            margin: 1rem 2rem 2rem 1rem;
+            color: #3e539a;
+            font-size: xx-large;
+        }
+
+    </style>
 </head>
 <body>
-    <h1>Здесь будет документация по программе</h1>
+<div class="menu">
+    <ul class="mainmenu">
+        <li>О программе</li>
+        <li>Главное окно</li>
+        <li>Порядок работы</li>
+        <li>Отчеты</li>
+    </ul>
+</div>
+<div class="container">
+    <div class="caption">Назначение программы</div>
+    <p>Программа предназначена для учета нарушений правил дорожного движения. Имеет следующие возможности:</p>
+    <ul>
+        <li>Регистрация правонарушений</li>
+        <li>Регистрация ТС (транспортного средства)</li>
+    </ul>
+</div>
 </body>
 </html>
