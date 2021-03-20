@@ -127,7 +127,7 @@ namespace GibddFouls
         private void bNewFT_Click(object sender, EventArgs e)
         {
             FormFT formFT = new FormFT();
-            formFT.Text = "";
+            formFT.txtFT.Text = "";
             formFT.IdFT = 0;
             if (formFT.ShowDialog() == DialogResult.OK)
             {
