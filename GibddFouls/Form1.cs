@@ -164,6 +164,7 @@ namespace GibddFouls
         }
         private void UpdateListFouls(string text)
         {
+
             listBoxFouls.Items.Clear();
             List<VFoul> vfouls = dbContext.GetVFouls(text);
             foreach(var item in vfouls)
@@ -320,6 +321,7 @@ namespace GibddFouls
                 foul.IdRegistr = formPdd.IdReg;
                 dbContext.UpdateFoul(foul);
             }
+            UpdateListFouls(txtNumber1.Text);
         }
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
